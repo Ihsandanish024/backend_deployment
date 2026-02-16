@@ -4,6 +4,7 @@ const express = require("express")
 const app = express()
 const StudentRoute = require("./routes/students")
 const GradeRoute = require("./routes/grade")
+const SectionModel = require("./routes/section")
 
 app.use(express.json())
 const connectDB = require("./config/db")
@@ -14,6 +15,7 @@ app.get("/",(req,res)=>{
 
 app.use("/student",StudentRoute)
 app.use("/grade",GradeRoute)
+app.use("/section",SectionModel)
 
 connectDB().then(()=>{
     app.listen(5000,()=>{
